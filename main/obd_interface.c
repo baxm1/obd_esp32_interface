@@ -14,6 +14,11 @@
 
 TaskHandle_t obdTask = NULL;    // Task handler
 
+// use a timer interrupt for the bit-banging baud rate for K-line
+
+// set the timer value with a function set_baud_rate(baud)
+// then start the interrupts going and call transmitByte at each interrupt
+
 void transmitByte(char byte_to_transmit){
     char *taskName = pcTaskGetName(NULL); // get the name of this task
     char i, bit_to_transmit;
